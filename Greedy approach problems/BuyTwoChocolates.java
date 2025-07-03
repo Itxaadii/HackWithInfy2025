@@ -1,20 +1,12 @@
 import java.util.Scanner;
-
+import java.util.Arrays;
 public class BuyTwoChocolates {
 
     public int buyChoco(int[] prices, int money) {
-        int minprice = Integer.MAX_VALUE;
-        int secminprice = Integer.MAX_VALUE;
-
-        for (int price : prices) {
-            if (price < minprice) {
-                secminprice = minprice;
-                minprice = price;
-            } else {
-                secminprice = Math.min(secminprice, price);
-            }
-        }
-
+       Arrays.sort(prices);
+        int minprice = prices[0];
+        int secminprice = prices[1];
+        
         if (minprice + secminprice > money) {
             return money;
         }
